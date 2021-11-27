@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.17.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.9.0",
     "babel-node": "0.0.1-security",
@@ -12,6 +13,7 @@
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "isomorphic-fetch": "^3.0.0",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
@@ -32,6 +34,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {}
+  ]
 }

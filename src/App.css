@@ -27,7 +27,22 @@
     text-align: left;
     width: 80vmax;
     margin: 0 auto;
+	flex : 1;
+	flex-direction: column;
+	/* margin-right :20px;
+	margin-left: 10px; */
 }
+
+
+
+@media (max-width: 450px){
+	.BodyContent{
+		width: inherit;
+		margin-right:10px;
+		margin-left: 10px;
+	}
+}
+
 
 @keyframes App-logo-spin {
   from {
