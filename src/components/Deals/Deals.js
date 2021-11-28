@@ -9,7 +9,7 @@ import {Context} from '../../Context';
 
 const Deals = (props) => {
 	
-	const {deals, setDeals} = useContext(Context)
+	const {deals} = useContext(Context)
 
 	const [isEditModalVisible, setIsEditModalVisible] = useState(false)
 	const [dealToEdit, setDealToEdit] = useState({})
@@ -60,7 +60,6 @@ const Deals = (props) => {
 		setIsEditModalVisible(false)
 	}
 
-console.log(deals)
 //PS : In Bigger and Important projects it is necessary to minimize the number of external dependecies by reducing
 //the number of packages to use >> That is why we should create our custom components like datatables and all.
 	return (

@@ -6,7 +6,7 @@ import {Context} from '../../Context'
 
 const Stats = () => {
 	
-	const {deals, setDeals} = useContext(Context)
+	const {deals} = useContext(Context)
 	const [stats, setStats] = useState({})
 
 	useEffect(() => {

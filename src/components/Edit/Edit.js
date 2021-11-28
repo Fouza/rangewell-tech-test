@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, {useState, useContext} from 'react'
 import {Modal, Button, Input} from 'antd'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';	
@@ -15,9 +15,9 @@ const Edit = (props) => {
 	const [amount, setAmount] = useState('10')
 
 	const handleOnChange = (value,name) => {
-		if(name=="title"){
+		if(name==="title"){
 			setTitle(value)
-		}else if(name=="amountRequired"){
+		}else if(name==="amountRequired"){
 			setAmount(value)
 		}
 	}

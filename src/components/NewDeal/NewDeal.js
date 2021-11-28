@@ -13,9 +13,9 @@ const NewDeal = (props) => {
 	const [amount, setAmount] = useState('10')
 
 	const handleOnChange = (value,name) => {
-		if(name=="title"){
+		if(name==="title"){
 			setTitle(value)
-		}else if(name=="amountRequired"){
+		}else if(name==="amountRequired"){
 			setAmount(value)
 		}
 	}
