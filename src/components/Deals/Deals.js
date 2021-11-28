@@ -60,7 +60,7 @@ const Deals = (props) => {
 		setIsEditModalVisible(false)
 	}
 
-
+console.log(deals)
 //PS : In Bigger and Important projects it is necessary to minimize the number of external dependecies by reducing
 //the number of packages to use >> That is why we should create our custom components like datatables and all.
 	return (
@@ -71,7 +71,7 @@ const Deals = (props) => {
 					 />
 			<Table dataSource={deals} 
 					columns={columns} 
-					pagination={{ position: 'bottomRight', pageSize:3 }}
+					pagination={{ position: 'bottomRight', pageSize:5 }}
 					scroll={{ x: 400 }} 
 					className="table_deals"
 					/>

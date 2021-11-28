@@ -23,11 +23,11 @@ const Stats = () => {
 			stat: Object.keys(stats).length === 0 ? 0 : stats.deals_count
 		},
 		{
-			title: 'Total amounts',
+			title: 'Total amounts (£)',
 			stat: Object.keys(stats).length === 0 ? 0 : stats.total_amounts
 		},
 		{
-			title: 'Average of amounts',
+			title: 'Average of amounts (£)',
 			stat: Object.keys(stats).length === 0 ? 0 : stats.avg_amount
 		}
 	];

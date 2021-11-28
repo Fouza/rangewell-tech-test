@@ -67,7 +67,7 @@ routerApi.get("/dealsfrom", async (req, res) => {
 				$gte: new Date(req.query.date)
 			}
 		}
-		).exec(function (err, result) {
+		).sort({ createdAt: -1}).exec(function (err, result) {
 			if (err) throw err;
 			res.send(result)
 	})
