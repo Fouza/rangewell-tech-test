@@ -33,6 +33,11 @@
 	margin-left: 10px; */
 }
 
+.add_button{
+	float:right;
+	margin-bottom:10px;
+}
+
 
 
 @media (max-width: 450px){

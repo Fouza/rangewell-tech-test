@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^4.17.2",
+    "axios": "^0.24.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.9.0",
     "babel-node": "0.0.1-security",
@@ -17,7 +18,8 @@
     "mongoose": "^6.0.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "^4.0.3"
+    "react-scripts": "^4.0.3",
+    "react-toastify": "^8.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

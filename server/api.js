@@ -1,5 +1,5 @@
 import express from "express";
-import moment from "moment";
+import mongoose from 'mongoose'
 
 const routerApi = express.Router();
 
@@ -7,9 +7,9 @@ const routerApi = express.Router();
 import * as db from "./data/models";
 
 
-// For big projects, it would be better to re-structure the node server project this way <<<
-// You can check the folders created and left empty to have an idea about the project architecture that can
-// be done.
+// For bigger projects, it would be better to re-structure the node server project this way <<<
+// The project architecture would be this way (Folders) :
+// models, controllers, routes, storage, middlewares, helpers
 
 
 //routes
@@ -17,13 +17,15 @@ import * as db from "./data/models";
 // get all deals with possible filter using query
 routerApi.get("/deals", async (req, res) => {
     db.dealsCollection.find(req.query).exec(function(err, result) {
+		if (err) throw err;
         res.send(result)
     })
 })
 
 // get deal with specified id 
-routerApi.get("/deal/:id", async (req, res) => {
-	db.dealsCollection.findById(req.params.id).exec(function(err, result){
+routerApi.post("/deal", (req, res) => {
+	db.dealsCollection.findById(req.body.id).exec(function(err, result){
+		if (err) throw err;
 		res.send(result)
 	})
 })
@@ -31,6 +33,7 @@ routerApi.get("/deal/:id", async (req, res) => {
 // Get the following stats : deals count, sum of all amounts, average of all amounts
 routerApi.get("/deals/stats", async (req, res) => {
 	db.dealsCollection.find().exec(function(err, result) {
+		if (err) throw err;
 		var total = 0;
 		var count = 0;
 		result.forEach(item => {
@@ -50,7 +53,8 @@ routerApi.get("/deals/stats", async (req, res) => {
 })
 // Get all deals order by create date starting from most recent.
 routerApi.get("/deals/latest", async (req, res) => {
-	db.dealsCollection.find({}, {_id:0}).sort({ createdAt: -1}).exec(function(err, result) {
+	db.dealsCollection.find().sort({ createdAt: -1}).exec(function(err, result) {
+		if (err) throw err;
 		res.send(result)
 	})
 })
@@ -64,7 +68,26 @@ routerApi.get("/dealsfrom", async (req, res) => {
 			}
 		}
 		).exec(function (err, result) {
+			if (err) throw err;
 			res.send(result)
+	})
+})
+
+routerApi.post("/deal/edit", async (req, res) => {
+	db.dealsCollection.updateOne({_id:req.body.id},{
+		$set : {title:req.body.title, amountRequired: req.body.amountRequired}
+	}, (err, result) => {
+		if (err) throw err;
+		//console.log("updated")
+		res.sendStatus(200)
+	})
+})
+
+routerApi.post("/deal/add", async (req, res) => {
+	console.log(req.body)
+	db.dealsCollection.create({_id: new mongoose.Types.ObjectId(),title:req.body.title, amountRequired:req.body.amountRequired}, (err, result) => {
+		if (err) throw err;
+		res.send(result)
 	})
 })
 

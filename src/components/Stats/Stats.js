@@ -1,31 +1,34 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {List, Card} from 'antd';
+import axios from 'axios';
+import {Context} from '../../Context'
+
 
 const Stats = () => {
-
+	
+	const {deals, setDeals} = useContext(Context)
 	const [stats, setStats] = useState({})
 
 	useEffect(() => {
-		fetch(`http://localhost:3001/api/deals/stats`)
-			.then(response => response.json())
+		axios.get(`http://localhost:3001/api/deals/stats`)
 			.then(response => {
-				setStats(response)
+				setStats(response.data)
 		});
-	},[])
+	},[deals])
 
 
 	const data = [
 		{
 			title: 'Number of deals',
-			stat: Object.keys(stats).length == 0 ? 0 : stats.deals_count
+			stat: Object.keys(stats).length === 0 ? 0 : stats.deals_count
 		},
 		{
 			title: 'Total amounts',
-			stat: Object.keys(stats).length == 0 ? 0 : stats.total_amounts
+			stat: Object.keys(stats).length === 0 ? 0 : stats.total_amounts
 		},
 		{
 			title: 'Average of amounts',
-			stat: Object.keys(stats).length == 0 ? 0 : stats.avg_amount
+			stat: Object.keys(stats).length === 0 ? 0 : stats.avg_amount
 		}
 	];
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {DatePicker, Button} from 'antd';
 import moment from 'moment';
 
@@ -9,10 +9,9 @@ const Search = (props) => {
 
 	return (
 	<div className="search_box">
-		<DatePicker defaultValue={moment(new Date(), props.dateFormat)} 
-						format={props.customFormat} 
+		<DatePicker  format={props.customFormat} 
 						disabledDate={props.disabledDate}
-						defaultValue={moment().add(1,'days')}
+						defaultValue={moment()}
 						onChange={props.handleOnChangeDate}
 						className="search_box"
 						style={{ marginBottom: '10px', marginRight: '5px' }}
